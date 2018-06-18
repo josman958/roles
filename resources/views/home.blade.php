@@ -22,6 +22,7 @@
                 </div>
             </div>
         </div>
+        <crud-product></crud-product>
     </div>
 </div>
 @endsection

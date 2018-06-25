@@ -12,32 +12,34 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>NOMBRE</th>
-                                <th>CODIGO</th>
-                                <th>CATEGORIA</th>
+                                <th>ALMACEN</th>
+                                <th>DIRECCION</th>
+                                <th>RESPONSABLE</th>
+                                <th>TELEFONO</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($products as $product)
+                            @foreach($almacens as $almacen)
                             <tr>
-                                <td>{{ $product->id}}</td>
-                                <td>{{ $product->name}}</td>
-                                <td>{{ $product->codigo}}</td>
-                                <td>{{ $product->categoria->name}}</td>
+                                <td>{{ $almacen->id}}</td>
+                                <td>{{ $almacen->name}}</td>
+                                <td>{{ $almacen->direccion}}</td>
+                                <td>{{ $almacen->responsable}}</td>
+                                <td>{{ $almacen->telefono}}</td>
                                 <td>
-                                    @can('products.show')
-                                        <a href="{{ route('products.show',$product->id)}}" class="btn btn-sm btn-default">VER</a>
+                                    @can('almacens.show')
+                                        <a href="{{ route('almacens.show',$almacen->id)}}" class="btn btn-sm btn-default">VER</a>
                                     @endcan
                                 </td>
                                 <td>
-                                        @can('products.edit')
-                                            <a href="{{ route('products.edit',$product->id)}}" class="btn btn-sm btn-default">EDITAR</a>
+                                        @can('almacens.edit')
+                                            <a href="{{ route('almacens.edit',$almacen->id)}}" class="btn btn-sm btn-default">EDITAR</a>
                                         @endcan
                                 </td>
                                 <td>
-                                        @can('products.destroy')
-                                            {!! Form::open(['route'=>['products.destroy',$product->id], 'method'=>'DELETE'])!!}
+                                        @can('almacens.destroy')
+                                            {!! Form::open(['route'=>['almacens.destroy',$almacen->id], 'method'=>'DELETE'])!!}
                                                 <button class="btn btn-sm btn-danger">ELIMINAR</button>
                                             {!! Form::close()!!}
                                         @endcan
@@ -46,7 +48,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $products->render() }}
+                    {{ $almacens->render() }}
                 </div>
             </div>
         </div>

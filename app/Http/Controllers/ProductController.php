@@ -62,6 +62,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         return view('products.edit', compact('product'));
+        
     }
 
     /**
@@ -89,5 +90,8 @@ class ProductController extends Controller
         $product->delete();
 
         return back()->with('info','Producto eliminado correctamente');
+    }
+    public function categoria(){
+        return  $this->belongsTo(Categoria::class,'categoria_id');
     }
 }

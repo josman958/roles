@@ -44,6 +44,9 @@
                         @can('roles.index')
                         <li class="nav-link"><a href="{{ route('roles.index') }}">Roles</a></li>
                         @endcan
+                        @can('almacens.index')
+                        <li class="nav-link"><a href="{{ route('almacens.index') }}">Almacenes</a></li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->

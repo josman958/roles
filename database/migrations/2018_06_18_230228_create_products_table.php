@@ -13,11 +13,18 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('products');
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
+            $table->integer('categoria_id')->unsigned();
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->string('codigo');
             $table->string('name');
             $table->string('description');
+            
             $table->timestamps();
+
+            // $table->foreign('categoria_id')->references('id')->on('categorias');
         });
     }
 

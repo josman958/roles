@@ -44,4 +44,12 @@ Route::middleware(['auth'])->group(function(){
     Route::get('users/{user}','UserController@show')->name('users.show')->middleware('permission:users.show');
     Route::delete('users/{user}','UserController@destroy')->name('users.destroy')->middleware('permission:users.destroy');
     Route::get('users/{user}/edit','UserController@edit')->name('users.edit')->middleware('permission:users.edit');
+    //almacen
+    Route::post('almacens/store','AlmacenController@store')->name('almacens.store')->middleware('permission:almacens.create');
+    Route::get('almacens','AlmacenController@index')->name('almacens.index')->middleware('permission:almacens.index');
+    Route::get('almacens/create','AlmacenController@create')->name('almacens.create')->middleware('permission:almacens.create');
+    Route::put('almacens/{almacen}','AlmacenController@update')->name('almacens.update')->middleware('permission:almacens.edit');
+    Route::get('almacens/{almacen}','AlmacenController@show')->name('almacens.show')->middleware('permission:almacens.show');
+    Route::delete('almacens/{almacen}','AlmacenController@destroy')->name('almacens.destroy')->middleware('permission:almacens.destroy');
+    Route::get('almacens/{almacen}/edit','AlmacenController@edit')->name('almacens.edit')->middleware('permission:almacens.edit');
 });
